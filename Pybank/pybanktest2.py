@@ -7,38 +7,48 @@ pybank_csv = os.path.join("..", "Pybank", "budget_data.csv")
 
 with open(pybank_csv, newline="") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
-    
-    next(csvfile)
-    #print(header_row)    
+    csv_header = next(csvreader)
+      
     Total_Months = 0
     Total_PNL = []
-    AVGP = []
+    difflist = []
+    firstrow = 0
+    newrow = 0
+    oldrow = 0
+    rownum = 0
+    
     for row in csvreader:
         Total_PNL1 = (row[1])
         Total_PNL1 = int(Total_PNL1)
         Total_PNL.append(Total_PNL1)
         Total_PNL2 = sum(Total_PNL)
-        #Different approach, tried to declare a variable, PNL_diff, as subtraction of two elements in the
-        # list, then appended those differences
-        #PNL_diff = ([Total_PNL[0] - Total_PNL[1]])
-        #AVGP.append(PNL_diff)
-        #avg = statistics.mean([Total_PNL1])
-        #diff = Total_PNL1 + 1 
-        #AVGP1 = diff - Total_PNL1
-        #AVGP1 = Total_PNL[1] + Total_PNL[2]
-        #######Also tried to reference the PNL list and add indexs
-        #print(AVGP1)
-        #AVGP.append(AVGP1)
-        #AVGP2 = statistics.mean(AVGP)
-        ########I want to take the differences, store in a variable, then run a mean on them
         Total_Months = Total_Months + 1
+        newrow = int(row[1])
+        if (rownum ==0):
+            oldrow = newrow
+        else:
+            diff = newrow - oldrow
+            difflist.append(diff)
+            oldrow = newrow
+        rownum +=1
+      
         
-#print(AVGP)
+avgdiff = statistics.mean(difflist)      
+formattedavgdiff = "${:.2f}".format(avgdiff)
+
 print("Financial Analysis")
 print("-----------------------------------------------------")
-print("Total Months: ", Total_Months)
+print("Total Months: " + str(Total_Months))
 print("Total: " + "$" + str((Total_PNL2)))
-#print("Average Change: " + "$" + str(AVGP))
-print("Greatest Increase in Profits: " + "$" + str(max(Total_PNL)))
-print("Greatest Decrease in Profits: " + "$" + str(min(Total_PNL)))
-        
+print("Average Change: "  + str(formattedavgdiff))
+print("Greatest Increase in Profits: " + "(" + "$"+ str(max(difflist)) +")")
+print("Greatest Decrease in Profits: " + "(" + "$"+ str(min(difflist)) +")")
+
+with open("BudgetAnalysis.txt" , "w") as text_file:
+    text_file.write("Financial Analysis") 
+    text_file.write("-----------------------------")
+    text_file.write("Total Months: " + str(Total_Months))
+    text_file.write("Total: " + "$" + str((Total_PNL2)))
+    text_file.write("Average Change: "  + str(formattedavgdiff))
+    text_file.write("Greatest Increase in Profits: " + "(" + "$" + str(max(difflist)) + ")")
+    text_file.write("Greatest Decrease in Profits: " + "(" + "$" + str(min(difflist)) + ")")
