@@ -38,19 +38,13 @@ with open(poll_csv, newline="") as csvfile:
     Lfloat = float(Li2)
     Ofloat = float(OTooley2)
 
-    #my_winner = {"Khanfloat": "Khan", "Cfloat": "Correy", "Lfloat": "Li", "Ofloat": "O'Tooley"}
-    #winner = (Khanfloat, Cfloat, Lfloat, Ofloat)
-    
     winners = [Khan, Correy, Li, OTooley]
     for x in winners:
         if x == max(winners):
             winner = x
-            break
+        break
         
-    
-            
-
-
+                    
 print("Election Results ")
 print("--------------------------------------------")
 print("Total Votes: " + str(Total_Votes))
@@ -60,6 +54,7 @@ print("Correy: " +  "{:.3%}".format(Cfloat)     +    '('  + str(Correy) + ')' )
 print("Li: " +  "{:.3%}".format(Lfloat)         +    '('  + str(Li) + ')' )
 print("O'Tooley: " +  "{:.3%}".format(Ofloat)   +    '('  + str(OTooley) + ')' )
 print("--------------------------------------------")
+    
 if winner == Khan:
     print("Winner: Khan")
 elif winner == Correy:
@@ -67,5 +62,18 @@ elif winner == Correy:
 elif winner == Li:
     print("Winner: Li")
 else:
-    print("Winner: O'Tooley")
+    print("Winner: O'Tooley")  
 print("--------------------------------------------")
+
+with open("electionanalysis.txt" , "w") as text_file:
+    text_file.write("Election Results ")
+    text_file.write("------------------------------")
+    text_file.write("Total Votes: " + str(Total_Votes))
+    text_file.write("------------------------------")
+    text_file.write("Khan: " +   "{:.3%}".format(Khanfloat)   +    '('  + str(Khan) + ')' )
+    text_file.write("Correy: " +  "{:.3%}".format(Cfloat)     +    '('  + str(Correy) + ')' )
+    text_file.write("Li: " +  "{:.3%}".format(Lfloat)         +    '('  + str(Li) + ')' )
+    text_file.write("O'Tooley: " +  "{:.3%}".format(Ofloat)   +    '('  + str(OTooley) + ')' )
+    text_file.write("------------------------------")
+    text_file.write("Winner: Khan")
+    
