@@ -56,13 +56,17 @@ print("O'Tooley: " +  "{:.3%}".format(Ofloat)   +    '('  + str(OTooley) + ')' )
 print("--------------------------------------------")
     
 if winner == Khan:
-    print("Winner: Khan")
+    k = "Winner: Khan"
+    print(k)
 elif winner == Correy:
-    print("Winner: Correy")
+    c = "Winner: Correy"
+    print(c)
 elif winner == Li:
-    print("Winner: Li")
+    l = "Winner: Li"
+    print(l)
 else:
-    print("Winner: O'Tooley")  
+    o = "Winner: O'Tooley"
+    print(o)
 print("--------------------------------------------")
 
 with open("electionanalysis.txt" , "w") as text_file:
