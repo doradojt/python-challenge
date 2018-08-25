@@ -79,4 +79,4 @@ with open("electionanalysis.txt" , "w") as text_file:
     text_file.write("Li: " +  "{:.3%}".format(Lfloat)         +    '('  + str(Li) + ')' )
     text_file.write("O'Tooley: " +  "{:.3%}".format(Ofloat)   +    '('  + str(OTooley) + ')' )
     text_file.write("------------------------------")
-    text_file.write("Winner: Khan")
+    text_file.write(str(k))
