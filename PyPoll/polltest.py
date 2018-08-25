@@ -44,6 +44,7 @@ with open(poll_csv, newline="") as csvfile:
     winners = [Khan, Correy, Li, OTooley]
     for x in winners:
         if x == max(winners):
+            winner = x
             break
         
     
@@ -59,5 +60,12 @@ print("Correy: " +  "{:.3%}".format(Cfloat)     +    '('  + str(Correy) + ')' )
 print("Li: " +  "{:.3%}".format(Lfloat)         +    '('  + str(Li) + ')' )
 print("O'Tooley: " +  "{:.3%}".format(Ofloat)   +    '('  + str(OTooley) + ')' )
 print("--------------------------------------------")
-print("Winner: " + str(x))
+if winner == Khan:
+    print("Winner: Khan")
+elif winner == Correy:
+    print("Winner: Correy")
+elif winner == Li:
+    print("Winner: Li")
+else:
+    print("Winner: O'Tooley")
 print("--------------------------------------------")
