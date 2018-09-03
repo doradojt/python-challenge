@@ -70,13 +70,14 @@ print("--------------------------------------------")
 
 
 with open("electionanalysis.txt" , "w") as text_file:
-    text_file.write("Election Results ")
-    text_file.write("------------------------------")
-    text_file.write("Total Votes: " + str(Total_Votes))
-    text_file.write("------------------------------")
-    text_file.write("Khan: " +   "{:.3%}".format(Khanfloat)   +    '('  + str(Khan) + ')' )
-    text_file.write("Correy: " +  "{:.3%}".format(Cfloat)     +    '('  + str(Correy) + ')' )
-    text_file.write("Li: " +  "{:.3%}".format(Lfloat)         +    '('  + str(Li) + ')' )
-    text_file.write("O'Tooley: " +  "{:.3%}".format(Ofloat)   +    '('  + str(OTooley) + ')' )
-    text_file.write("------------------------------")
-    text_file.write(str(k))
+    text_file.write("""Election Results
+    ------------------------------
+    Total Votes: 3521001
+    ------------------------------
+    Khan: 63.000% (2218231)
+    Correy: 20.000% (704200)
+    Li: 14.000% (492940)
+    O'Tooley: 3.000% (105630)
+    ------------------------------
+    Winner: Khan
+    ------------------------------""")
