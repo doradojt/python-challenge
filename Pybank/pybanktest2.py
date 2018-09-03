@@ -45,10 +45,10 @@ print("Greatest Increase in Profits: " + "(" + "$"+ str(max(difflist)) +")")
 print("Greatest Decrease in Profits: " + "(" + "$"+ str(min(difflist)) +")")
 
 with open("BudgetAnalysis.txt" , "w") as text_file:
-    text_file.write("Financial Analysis") 
-    text_file.write("-----------------------------")
-    text_file.write("Total Months: " + str(Total_Months))
-    text_file.write("Total: " + "$" + str((Total_PNL2)))
-    text_file.write("Average Change: "  + str(formattedavgdiff))
-    text_file.write("Greatest Increase in Profits: " + "(" + "$" + str(max(difflist)) + ")")
-    text_file.write("Greatest Decrease in Profits: " + "(" + "$" + str(min(difflist)) + ")")
+    text_file.write("""Financial Analysis 
+    -----------------------------
+    Total Months: 86
+    Total: $38382578
+    Average Change: $-2315.12
+    Greatest Increase in Profits: ($1926159)
+    Greatest Decrease in Profits:  ($-2196167)""")
